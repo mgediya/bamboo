@@ -13,7 +13,7 @@ echo '<section class="payment-center-section">
                         if($sub_heading) echo'<h5>'.$sub_heading.'</h5>';
                         if($heading) echo'<h3>'.$heading.'</h3>';
                         echo '<div class="pc-btnwrap">';
-                            if($cta1) acf_link( $cta1, 'check-btn btn-main' );
+                            if($cta1) acf_link( $cta1, 'check-btn btn-main trigger-oneinc-portal-modal' );
                             if($cta2) acf_link( $cta2, 'cancle-btn btn-main' );
                         echo '</div>
                     </div>
@@ -27,3 +27,5 @@ echo '<section class="payment-center-section">
         </div>
     </div>
 </section>';
+
+Bamboo_OneInc_Portal_Modal_Integration::frontend();

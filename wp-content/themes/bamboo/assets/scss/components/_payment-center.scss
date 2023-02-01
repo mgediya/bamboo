@@ -117,3 +117,16 @@
         }
     }
 }
+
+dialog{
+    box-shadow: 0px 0px 25px 10px rgba($black ,0.18);
+    border-radius:rem(16px);
+    border-width: 0;
+    padding: rem(32px);
+
+    .btn{
+        padding-top: rem(5px);
+        padding-bottom: rem(5px);
+        margin-right: rem(16px);
+    }
+}

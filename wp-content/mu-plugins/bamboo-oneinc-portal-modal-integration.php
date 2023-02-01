@@ -187,8 +187,8 @@ class Bamboo_OneInc_Portal_Modal_Integration {
 			<form method="dialog">
 				<p><?php echo esc_html( static::CONFIRM_MESSAGE ) ?></p>
 				<p>
-					<button value="cancel">Cancel</button>
-					<button value="default">Confirm</button>
+					<button class="btn" value="cancel">Cancel</button>
+					<button class="btn" value="default">Confirm</button>
 				</p>
 			</form>
 		</dialog>
