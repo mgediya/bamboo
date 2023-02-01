@@ -1,0 +1,212 @@
+/*--- footer ---*/
+.main-footer {
+	width: 100%;
+	height: auto;
+	align-self: end;
+	line-height: normal;
+	background: $secondary-1000;
+	// z-index: -1;
+	&.mt-minus{
+		margin-top: rem(-300px);
+		.footer-top{
+			padding: rem(400px) 0 rem(100px);	
+			@include respond-below(lg){ 
+				padding: rem(350px) 0 rem(80px);
+			}
+			@include respond-below(md){ 
+				padding: rem(300px) 0 rem(30px);
+			}
+		}
+	}
+	.footer{
+		&-logo{
+			margin-bottom: rem(40px);
+			@include respond-below(lg){
+				text-align: center;
+				margin-bottom:rem(20px);
+			}
+			@include respond-below(md){
+				margin-top: rem(50px);
+			}
+		}
+		&-top {
+			padding: rem(100px) 0;	  
+			position: relative;
+			@include respond-below(lg){ 
+				padding: rem(80px) 0;
+			}
+			@include respond-below(md){ 
+				padding: rem(50px) 0;
+			}
+			&:before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				bottom: 0;
+				left: 0;
+				background: image('ts-tree-shape.png') no-repeat center / contain;
+				pointer-events: none;
+				opacity: .12;
+			}
+			.ft-text{
+				font-size: rem(20px);
+				font-weight: 300;
+				margin-bottom: rem(100px);
+				@include respond-below(lg){
+					text-align: center;
+					margin-bottom: rem(50px);
+				}
+				@include respond-below(md){
+					margin-bottom: rem(30px);
+				}
+			}
+			.menu{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: flex;
+				flex-wrap: wrap;
+				margin: 0 rem(-16px);
+				@include respond-below(md){
+					margin: 0 rem(-16px) rem(30px);
+				}
+				&-item{
+					width: 50%;
+					padding: 0 rem(16px);
+					margin-bottom: rem(20px);
+					@include respond-below(md){
+						margin-bottom: rem(10px);
+					}
+					&.menu-item-has-children{
+						> a{
+							display: none;
+						}
+					}
+					a{
+						color: $white;
+						font-size: rem(20px);
+						text-decoration: none;
+						&:hover{
+							color: $primary-100;
+						}
+					}
+					.sub-menu{
+						list-style: none;
+						padding: 0;
+						margin: 0;
+					}
+				}	
+			}
+		}
+		&-bottom {
+			background-color: $black;
+			padding: rem(25px) 0;
+			text-align: center;
+			.ft-content-wrap{
+				color: rgba($white,0.54);
+				font-size: rem(17px);
+				@include respond-below(sm){
+					font-size: rem(14px);
+				}
+				span{
+					br {
+						display: none;
+						@include respond-below(sm){
+							display: block;
+						}
+					}
+				}
+			}
+			.menu{
+				margin: 0;
+				list-style: none;
+				@include flex-center();
+				@include respond-below(lg){
+					margin-top: rem(15px);
+					padding: 0;
+				}
+				li{
+					position: relative;
+					padding: 0 rem(18px);
+					@include respond-below(md){
+						padding: 0 rem(10px);
+					}
+					&:not(:last-child):after{
+						content: '|';
+						position: absolute;
+						right: 0;
+						top:0;
+					}
+				}
+				a{
+					color: rgba($white,0.54);
+					font-size: rem(17px);
+					text-decoration: none;
+					@include respond-below(sm){
+						font-size: rem(14px);
+					}
+					&:hover{
+						color: $primary-100;
+					}
+				}
+			}
+		}
+		&-desc{
+			@include hgroup{
+				color: $white;
+				font-weight: 900;
+			}
+			p{
+				font-size: rem(20px);
+				margin-bottom: rem(10px);
+				@include respond-below(md){
+					font-size: rem(16px);					
+				}
+			}
+			a{
+				color: $white;
+				font-size: rem(20px);
+				font-weight: 400;
+				text-decoration: none;
+				word-break: break-all;
+				@include respond-below(md){
+					display: inline-block;
+					width: 100%;
+					font-size: rem(16px);
+				}
+				&:hover{
+					color: $primary-100;
+				}
+			}
+		}
+	}
+	.social{
+		&_icon_wrapper{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			@include respond-below(lg){
+				margin-bottom:rem(50px);
+				justify-content: center;
+			}
+			@include respond-below(md){
+				margin-bottom:rem(30px);
+			}
+			li{
+				padding: 0;
+				&:not(:last-child){
+					margin-right: rem(38px);
+				}
+			}
+			a{
+				color: $white;
+				font-size: rem(24px);
+				text-decoration: none;
+				&:hover{
+					color: $primary-100;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+.partner-type-tab-section{
+    margin: rem(100px) 0;
+    @include respond-below(md) {
+        margin: rem(50px) 0;
+    }
+    .tabs{
+        &-nav {
+            position: static;
+            @include respond-below(md) {
+                flex-wrap: wrap;
+                .tabs-item{
+                    margin-bottom: rem(10px);
+                }
+            }
+            
+        }
+        &-wrapper{
+            background-color: $white;
+            .tabs-nav {
+                justify-content: center;
+                width: 100%;
+            } 
+            .sidebartab-dropdown{
+                position: static;
+            }
+        }
+        &-content-wrap {
+            overflow: hidden;
+            box-shadow:unset;
+            border-radius: 30px;            
+            .tb-content{
+                max-width: rem(1260px);
+                margin: auto;
+                padding: rem(140px) 0;
+                @include respond-below(xl3) {
+                    padding: rem(50px) 0;  
+                }
+                @include respond-below(xl3) {
+                    padding: rem(30px) 0;  
+                }
+                .ptt-addlogo {
+                    width: 25%;
+                    text-align: center;
+                    padding: rem(10px) rem(20px);
+                    display: flex;
+                    align-items: center;
+                    @include respond-below(md) {
+                        width: 50%; 
+                    }
+                    img {
+                        max-width: 338px;
+                        width: 100%;
+                        max-height: 94px;
+                        object-fit: contain;
+                        @include respond-below(md) {
+                            max-width: 178px;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}

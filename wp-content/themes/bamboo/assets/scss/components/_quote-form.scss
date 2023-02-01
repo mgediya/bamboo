@@ -1,0 +1,79 @@
+.quote-form-section {
+    padding: rem(150px) 0 rem(100px);
+    position: relative;
+    z-index: 1;
+    
+    @include respond-below(lg){ 
+        padding: rem(80px) 0;
+    }
+    @include respond-below(md){ 
+        padding: rem(50px) 0;
+    }
+    &.-color{
+        &:before{
+            content: '';
+            height: 40%;
+            width: 100%;
+            background: $gray-1100;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            @include respond-below(lg){ 
+                height: 60%;
+            } 
+        }
+    }
+    .qf{
+        &-heading {
+            margin-bottom: rem(100px);
+            text-align: center;
+            @include respond-below(lg){ 
+                margin-bottom: rem(60px);
+            }
+            @include respond-below(md){ 
+                margin-bottom: rem(30px);
+            }
+            .qf-title {
+                font-size: rem(38px);
+                font-weight: 900;
+                color: $secondary-300;
+                margin-bottom: rem(30px);
+                @include respond-below(lg){ 
+                    margin-bottom: rem(15px);
+                }
+                @include respond-below(sm){ 
+                    font-size: rem(24px);
+                }
+                span{
+                    color: $primary-200;
+                    font-weight: 900;
+                }
+            }
+        }
+        &-image {
+            position: relative;
+            margin-right: rem(100px);
+            @include imgFit();
+            @include respond-below(lg){                
+                max-width: 500px;
+                margin: 0 auto rem(50px);
+            }
+            &:before {
+                content: '';
+                padding-top:aspect-ratio(870,900);
+                display: block;
+            }
+        }
+        
+        // &-bg.-color {
+        //     padding: rem(220px);
+        //     background: $gray-1100;
+        //     margin-top: rem(-320px);
+        // }
+        // &-bg.-texture {
+        //     display: none;
+        // }
+    }
+    
+}

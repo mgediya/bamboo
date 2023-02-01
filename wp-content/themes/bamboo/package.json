@@ -1,0 +1,46 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sass-migrator division **/*.scss && npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^6.0.3",
+    "expose-loader": "^0.7.5",
+    "jquery": "^3.5.6",
+    "laravel-mix": "^5.0.5",
+    "laravel-mix-svg-sprite": "^1.0.1",
+    "lazysizes": "^5.2.2",
+    "normalize.css": "^8.0.1",
+    "resolve-url-loader": "^3.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "slick-carousel": "^1.8.1",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.31",
+    "aos": "^2.3.4",
+    "laravel-mix-purgecss": "^6.0.0",
+    "loading-attribute-polyfill": "^1.5.4",
+    "masonry-layout": "^4.2.2",
+    "paroller.js": "^1.4.6",
+    "production": "0.0.2",
+    "yarn": "^1.22.19"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

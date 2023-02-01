@@ -1,0 +1,48 @@
+.about-intro-section{
+    padding: rem(155px) 0 rem(390px) 0;
+    @include respond-below(xl) {
+        padding: rem(50px) 0 rem(260px) 0;
+    }
+    @include respond-below(lg) {
+        padding: rem(50px) 0 rem(200px) 0;
+    }
+    @include respond-below(md) {
+        padding: rem(35px) 0 rem(300px) 0;
+    }
+    .ai{
+        &-wrapper{
+            max-width: 1350px;
+            margin: auto;
+            @include respond-below(md) {
+                max-width: 500px;
+            }
+        }
+        &-leftwrap{
+            max-width: 89%;
+            @include respond-below(md) {
+                max-width: 100%;
+            }
+            h3 {
+                font-size:rem(26px);
+                font-weight: 900;
+                color:$primary-100;
+                margin-bottom: rem(30px);
+                @include respond-below(xl3) {
+                    font-size:rem(20px);
+                    margin-bottom: rem(20px);
+                }
+                @include respond-below(md) {
+                    font-size:rem(16px);
+                    margin-bottom: rem(10px);
+                }
+            }
+        }
+        &-rightwrap{
+            max-width: 90%;
+            @include respond-below(lg) {
+                max-width: 100%;
+            }
+        }
+
+    }   
+}

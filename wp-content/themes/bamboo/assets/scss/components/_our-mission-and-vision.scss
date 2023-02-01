@@ -1,0 +1,347 @@
+.our-mission-and-vision{
+    background: image('mission-shape.png') no-repeat center right / cover;
+    padding: rem(60px) 0;
+    @include respond-below(lg) {
+        padding: rem(60px) 0 0 0;
+    }
+    .our-value-wrapper{
+        padding: rem(230px) 0 rem(100px) 0;
+        @include respond-below(xl3) {
+            padding: rem(100px) 0 rem(50px) 0;
+        }
+        @include respond-below(lg) {
+            padding: rem(60px) 0 0 0;
+        }
+        .section-heading{
+            margin-bottom: rem(80px);
+            @include respond-below(lg) {
+                margin-bottom: rem(0px);
+            }
+            h2{
+                font-weight: 500;
+                max-width: 90%;
+                span{
+                    color: $primary-100;
+                    font-weight: 500;
+                }
+                @include respond-below(xl) {
+                    max-width: 100%;
+                }
+                @include respond-below(lg) {
+                    font-size: rem(34px);
+                }
+                @include respond-below(md) {
+                    font-size: rem(24px);
+                }
+            }
+        }
+        .ov-wrap{
+            max-width: rem(450px);
+            padding: rem(40px) 0;
+            @include respond-below(xl3) {
+                padding: rem(20px) 0;
+            }
+            @include respond-below(md) {
+                padding: rem(10px) 0;
+            }
+            h4 {
+                font-size: rem(32px);
+                font-weight: 500;
+                color: $primary-100;
+                
+                @include respond-below(md) {
+                    font-size: rem(20px);
+                }
+            }
+        }
+    }
+    .tabs-wrapper{
+        @include respond-below(md) {
+            max-width: rem(500px);
+            margin: auto;
+        }
+    }
+}
+   
+.tabs{
+    &-wrapper{
+        background-color: $gray-700;
+        border-radius: rem(30px);
+        position: relative;
+        @include respond-below(xl){
+            border-radius: 15px;
+        }
+        .sidebartab-dropdown {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            right: 30px;
+            width: auto;
+            padding: rem(8px);
+            padding-right: rem(30px);
+            display: block;
+            font-size: rem(18px);
+            font-weight: 500;
+            color: $primary-100;
+            border: 1px solid $gray-900;
+            border-radius: 8px;
+            z-index: 2;            
+            &:before {
+                content: "";
+                position: absolute;
+                top: 15px;
+                right: 12px;
+                width: 10px;
+                height: 10px;
+                border-bottom: 2px solid $primary-100;
+                border-right: 2px solid $primary-100;
+                transform: rotate(45deg);
+                transition: .3s;
+            }
+            &.active{
+                &:before {
+                    top: 20px;
+                    transform: rotate(45deg) scale(-1);
+                }
+            }
+            .our-mission-and-vision &,
+            .coverage-plan-section &{
+                display: none;
+            }
+            .single-tab &{
+                display: none;
+            }
+            @include respond-above(md) {
+                display: none;
+            }
+        }
+        .tb-image{
+            height: 100%;
+            position: relative;
+            padding-top:aspect-ratio(650,545);
+            @include imgFit();
+        }
+        &.mt-minus{
+            .tabs-content-wrap{
+                margin-top: rem(-320px);
+                @include respond-below(xl) {
+                    margin-top: rem(-250px);
+                }
+                @include respond-below(lg) {
+                    margin-top: rem(-210px);
+                }
+                @include respond-below(md) {
+                    margin-top: rem(-325px);
+                }
+            }
+            
+        }
+    }
+    &-nav{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: rem(106px);
+        left: rem(100px);
+        z-index: 2;
+        @include respond-below(xl3) {
+            left: rem(40px);
+            top: rem(70px);
+        }
+        @include respond-below(xl) {
+            left: rem(30px);
+            top: rem(70px);
+        }
+        @include respond-below(lg) {
+            top: rem(40px);
+        }
+        @include respond-below(md) {
+            &:not(.single-tab &){
+                top: 65px;
+                left: 30px;
+                right: 30px;            
+                display: none;
+                width: auto;
+                height: auto;
+                padding: rem(15px) rem(15px) 0;
+                border: 1px solid $gray-900;
+                border-radius: 8px;
+                text-align: center;
+                background-color: $white;
+                margin-top: rem(15px);
+                box-shadow: 0px 0px 10px 6px rgba($black ,14%);
+
+                .our-mission-and-vision &,
+                .coverage-plan-section &{
+                    display: flex;
+                    border: 0;
+                    box-shadow: none;
+                    background: transparent;
+                    top: 30px;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+        .single-tab &{
+            right: rem(100px);
+            padding-bottom: rem(40px);
+            margin-bottom: rem(40px);
+            border-bottom: 2px solid $gray;
+            @include respond-below(xl3) {
+                right: rem(40px);
+            }
+            @include respond-below(xl) {
+                right: rem(30px);
+            }
+            @include respond-below(lg) {
+                padding-bottom: rem(20px);
+                margin-bottom: rem(20px);
+            }
+        }
+        .tabs-item{
+            list-style: none;
+            padding: 0 rem(40px);
+            position: relative;
+            border-right: 4px solid $gray-600;
+            cursor: pointer;
+            &:first-child{
+                padding-left: 0;                    
+            }
+            &:last-child{
+                border: 0;                   
+            }
+            &.active {
+                h4{
+                    color: $primary-100;
+                }
+                @include respond-below(md) {
+                    border: none;
+                }  
+            }
+            @include respond-below(xl3) {
+                padding: 0 rem(20px);
+            }
+            @include respond-below(lg) {
+                padding: 0 rem(10px);
+                border-right: 2px solid $gray-600;  
+            }
+            @include respond-below(md) {
+                padding: 0;
+                width: 100%;
+                border: none;
+                text-align: left;
+                .our-mission-and-vision &,
+                .coverage-plan-section &{
+                    width: auto;
+                    padding: 0 rem(10px);
+                    border-right: 2px solid $gray-600;  
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                    &:last-child{
+                        border: none;
+                    }
+                    h4{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            
+        }
+        h4 {
+            font-size: rem(27px);
+            font-weight: 900;
+            color: $gray-600;
+            margin: 0;
+            @include respond-below(xxl) {
+                font-size: rem(24px);
+            }
+            @include respond-below(lg) {
+                font-size: rem(20px);
+            }
+            @include respond-below(md) {
+                font-size: rem(18px);
+                font-weight: 500;
+                margin-bottom: rem(15px);
+            }
+            .single-tab &{
+                font-size: rem(38px);
+                @include respond-below(xxl) {
+                    font-size: rem(28px);
+                }
+                @include respond-below(lg) {
+                    font-size: rem(24px);
+                }
+                @include respond-below(md) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &-content-wrap {
+        overflow: hidden;
+        box-shadow: 0px 0px 25px 10px rgb($black ,0.18);
+        border-radius: 30px;
+        position: relative;
+        z-index: 1;
+        @include respond-below(xl){
+            border-radius: 15px;
+        }
+        .tb-content{
+            padding: rem(200px) rem(100px) rem(100px);
+            @include respond-below(xl3) {
+                padding: rem(150px) rem(40px) rem(100px);
+            }
+            @include respond-below(xl) {
+                padding: rem(150px) rem(30px) rem(100px);
+            }
+            @include respond-below(lg) {
+                padding: rem(80px) rem(30px) rem(40px);
+            }
+            .single-tab &{
+                padding-top: rem(250px);
+                @include respond-below(xl3) {
+                    padding-top: rem(200px);
+                }
+                @include respond-below(lg) {
+                    padding-top: rem(120px);
+                }
+            }
+            .desc{
+                // margin-bottom: rem(70px);
+                // @include respond-below(xl) {
+                //     margin-bottom: rem(40px);
+                // }
+                // @include respond-below(md) {
+                //     margin-bottom: rem(25px);
+                // }
+                p {
+                    font-size: rem(39px);
+                    font-weight: 500;
+                    @include respond-below(xl3) {
+                        font-size: rem(34px);
+                    }
+                    @include respond-below(xl) {
+                        font-size: rem(24px);
+                    }
+                }
+            }
+            .btn-link{
+                color: $primary-100;
+                &:hover{
+                    color: $secondary-100;
+                }
+            }
+            .tab-link {
+                font-size: rem(19px);
+                font-weight: 500;
+                text-decoration: none;
+                position: relative;
+            }
+        }
+    }
+}
+ 

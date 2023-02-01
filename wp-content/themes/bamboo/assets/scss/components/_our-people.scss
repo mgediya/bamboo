@@ -1,0 +1,176 @@
+.our-people-section{
+    margin-bottom: rem(205px);
+    margin-top: rem(100px);
+    @include respond-below(xl3) {
+        margin-bottom: rem(100px);
+        margin-top: 0;
+    }
+    @include respond-below(lg) {
+        margin-top: rem(50px);
+    }
+    @include respond-below(md) {
+        margin-top: rem(50px);
+        margin-bottom: rem(50px);
+    }
+    @include respond-below(sm) {
+        margin-top: rem(30px);
+    }
+    .op{
+        &-people{
+            margin: rem(80px) 0 rem(65px) 0;
+            justify-content: center;
+            @include respond-above(xl3) {
+                @include row-space(55px);
+            }
+            @include respond-below(xxl) {
+                margin: rem(40px) 0 rem(20px) 0;
+            }
+            @include respond-below(sm) {
+                @include row-space(20px);
+                margin: rem(20px) 0 rem(20px) 0;
+            }
+        }
+        &-wrap:hover .people-image img {
+            scale: 1.05;
+            transition: 0.5s all;
+        }
+        &-wrap{
+            position: relative;
+            margin: rem(25px) 0;
+            border-radius: rem(50px);
+            transition: 0.3s linear;
+            overflow: hidden;
+            @include respond-below(xxl) {
+                margin: rem(15px) 0;
+                border-radius: rem(20px);
+            }
+            @include respond-below(sm) {
+                margin: rem(10px) 0;
+            }
+            &:hover {
+               box-shadow: 0px 0px 68.4px 26.6px rgba($black,0.17);
+            }
+            .people-image{
+                position: relative;
+                padding-top:aspect-ratio(325,420);
+                
+                @include imgFit();
+                img{
+                    border-radius: 50px;
+                    transition: 0.3s all;
+                    @include respond-below(xxl) {
+                        border-radius: 20px;
+                    }
+                }
+            }
+            .people-content {
+                position: absolute;
+                bottom:0;
+                padding: 0 rem(10px) rem(20px) rem(10px);
+                text-align: center;
+                width: 100%;
+                @include respond-below(xl) {
+                    padding: 0 rem(5px) rem(5px) rem(5px);
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0) 100%);
+                    border-radius: 0px 0px 50px 50px;
+                    transition: .3s;
+                    z-index: 0;
+                    @include respond-below(xxl) {
+                        border-radius: 0px 0px 20px 20px;
+                    }
+                }
+                h3 {
+                    font-size: rem(33px);
+                    color: $white;
+                    font-weight: 300;
+                    position: relative;
+                    @include respond-below(xl3) {
+                        font-size: rem(28px);
+                        margin-bottom: rem(10px);
+                    }
+                    @include respond-below(lg) {
+                        font-size: rem(24px);
+                    }
+                    @include respond-below(md) {
+                        font-size: rem(20px);
+                    }
+                }
+                h4 {
+                    font-size: rem(21px);
+                    font-weight: 900;
+                    color: $white;
+                    position: relative;
+                    @include respond-below(xl) {
+                        font-size: rem(18px);
+                    }
+                    @include respond-below(lg) {
+                        font-size: rem(16px);
+                    }
+                }
+            }
+        }
+        &-accolades{
+            margin-top: rem(20px);
+            max-width: rem(920px);
+            margin: auto;
+            @include respond-below(lg) {
+                flex-direction: column;
+            }
+            h3{
+                font-size: rem(25px);
+                font-weight: 900;
+                margin: 0;
+                width: 25%;
+                text-align: right;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                @include respond-below(lg) {
+                    justify-content:start;
+                    margin-bottom: rem(20px);
+                    width: 100%;
+                    margin-left: rem(15px);
+                }
+                @include respond-below(md) {
+                    justify-content: center;
+                }
+            }
+
+            .op-logos{
+                width: 75%;
+                @include respond-below(lg) {
+                    width: 100%;
+                }
+                .accolades-image{
+                    padding: rem(15px);
+                    width: 25%;
+                    @include respond-below(xxl) {
+                        padding: rem(15px);
+                    }
+                    @include respond-below(md) {
+                        width: 50%;
+                        text-align: center;
+                        padding:rem(15px);
+                    }
+                    img {
+                        width: 100%;
+                        height: rem(40px);
+                        max-width: rem(175px);
+                        object-fit: contain;
+                    }
+                } 
+            }
+         
+        }
+        
+        
+    }
+}

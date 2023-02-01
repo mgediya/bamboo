@@ -1,0 +1,185 @@
+// variable and mixin
+// @import 'abstracts/core' ;
+
+.home-hero-section{
+    padding-bottom: rem(100px);
+    .hh{
+        &-inner{
+            position: relative;
+            aspect-ratio:1920/1255;
+            min-height: rem(750px);
+            padding: rem(100px) 0;
+            width: 100%;
+            @include respond-below(sm){
+                min-height: rem(650px);
+            }
+            .bg-image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $black;
+                    // background: image('banner-shape.svg') no-repeat center bottom / cover;
+                    mix-blend-mode: color-burn;
+                    opacity: 0.1;
+                }
+                // &:after{
+                //     content: '';
+                //     position: absolute;
+                //     bottom: -1px;
+                //     left: 0;
+                //     width: 100%;
+                //     height: 48%;
+                //     background: image('white-shape.svg') no-repeat center bottom / 100%;
+                // }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    @include respond-below(sm){
+                        object-position: 70%;
+                    }
+                }
+            }
+        }
+        &-content {
+            position: relative;
+            max-width: rem(600px);
+            color: $white;
+            @include respond-below(md){
+                max-width: 100%;
+            }
+            .small{
+                margin-bottom: rem(50px);
+                @include respond-below(lg){
+                    margin-bottom: rem(20px);
+                }
+            }
+            sup{
+                font-size: 14px;
+                top: rem(-36px);
+                @include respond-below(xl){
+                    top: rem(-20px);
+                }
+            }
+            .btn-wrap {
+                border: 1px solid $white;
+                display: inline-flex;
+                border-radius: rem(30px);
+                margin: rem(50px) 0;
+                @include respond-below(lg){
+                    margin: rem(20px) 0;
+                }
+                .btn{
+                    margin: -1px;
+                    &-link{
+                        padding: 0 rem(28px);
+                        color: $white;
+                        text-decoration: none;
+                        @include respond-below(sm){
+                            padding: 0 rem(15px);
+                        }
+                    }
+                }
+            }
+        }
+        &-features{
+            &-grid{
+                position: relative;
+                margin-top: rem(-270px);
+                @include respond-below(xl3){
+                    margin-top: rem(-220px);
+                }
+                @include respond-below(xxl){
+                    margin-top: rem(-170px);
+                }
+                @include respond-below(xl){
+                    margin-top: rem(-150px);
+                }
+                @include respond-below(sm){
+                    margin-top: rem(-100px);
+                }
+            }
+            &-inner{
+                padding: rem(50px) rem(70px);
+                border-radius: rem(30px);
+                background-color: rgba($white,0.949);
+                box-shadow: 0px 0px 68.4px 26.6px rgba(0, 45, 107, 0.18);
+                @include respond-below(xl3){
+                    padding: rem(50px) rem(40px);
+                }    
+                @include respond-below(xl){
+                    padding: rem(40px) rem(20px);
+                }            
+                .row{
+                    @include respond-above(xxl){
+                        @include row-space(120px);
+                    }
+                    @include respond-above(xl){
+                        @include row-space(60px);
+                    }
+                }
+                .grid-items{
+                    position: relative;
+                    &:not(:last-child){
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            top:50%;
+                            transform: translateY(-50%);
+                            right: 0;
+                            width: 1px;
+                            height: 80%;
+                            background-color: $gray-100;
+                            @include respond-below(md){
+                                display: none;
+                                
+                            }
+                        }
+                        @include respond-below(md){
+                            margin-bottom: rem(30px);
+                            border-bottom: 1px solid #dedede;
+                                padding-bottom: rem(25px);
+                        }
+                    }
+                    .feature-head {
+                        margin-bottom: rem(40px);
+                        @include respond-below(xxl){
+                            margin-bottom: rem(20px);
+                        } 
+                    }
+                    .icon{
+                        width: rem(50px);
+                        height: rem(50px);
+                        object-fit: contain;
+                        margin-right: rem(15px);
+                        @include respond-below(xl3){
+                            width: rem(35px);
+                            height: rem(35px);
+                            margin-right: rem(5px);
+                        }
+                        @include respond-below(xl){
+                            width: rem(30px);
+                            height: rem(30px);
+                        }
+                    }
+                    .title{
+                        margin-bottom: 0;
+                    }
+                    .feature-wrap{
+                        font-size: rem(23px);
+                    }
+                }
+            }
+        }
+    }
+}

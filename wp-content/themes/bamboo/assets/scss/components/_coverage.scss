@@ -1,0 +1,182 @@
+.coverage-section{
+    position: relative;
+    margin-bottom: rem(80px);
+    .left-head{
+        font-size: rem(54px);
+        @include respond-below(xxl){
+            font-size: rem(46px); 
+        }
+        @include respond-below(lg){
+            font-size: rem(36px); 
+        }
+    }
+    @include respond-below(lg) {
+        .cs-right {
+            .cs-col{
+                max-width: 100%;
+                margin-bottom: rem(30px);
+            }
+        }
+        
+    }
+    &.-texture{
+        &::after{
+            content: "";
+            position: absolute;
+            width: 31%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            background-image: image('shape-tree.png');
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: -1;
+        }
+    }
+    &.-gradient {
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gray-400;
+            background: linear-gradient(0deg, rgba($gray-400,1) 50%, rgba($white,1) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    }
+    .cs {
+        &-heading {
+            max-width: rem(460px);
+            margin: auto;
+            @include respond-below(lg) {
+                max-width: 100%;
+                margin-bottom: rem(50px);
+            }
+            @include respond-below(md) {
+                margin-bottom: rem(30px);
+            }
+            .btn-secondary {
+                margin-top: rem(55px);
+                @include respond-below(lg) {
+                    margin-top: rem(15px);
+                }
+                @include respond-below(lg) {
+                    margin-top: 0;
+                }
+            }
+        }
+        &-covrage {
+            @include respond-above(xl3) {
+                margin-right: rem(90px);
+            }
+            @include respond-below(lg) {
+                    justify-content: space-between;
+            }
+            @include respond-below(xl) {
+                margin-right:0;
+            }
+        }
+        &-col {
+            width: 100%;
+            max-width: rem(400px);
+            padding: rem(50px) rem(50px) rem(105px) rem(50px);
+            border: 1px solid $gray-200;
+            border-radius: rem(10px);
+            margin:rem(35px);
+            transition: 0.3s all linear;
+            background: $white;
+            z-index: 1;
+            position: relative;
+            overflow: hidden;
+            @include respond-below(xl) {
+                margin:rem(20px);
+                max-width: rem(350px);
+                padding: rem(30px) rem(30px) rem(85px) rem(30px);
+            }
+            @include respond-below(lg) {
+                max-width: 48%;
+                margin:0;
+            }
+            @include respond-below(md) {
+                max-width: 100%;
+                margin-bottom: rem(30px);
+            }
+            &:before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                background: image('shape-cs-sec.png') no-repeat 30% 40% / auto 112%;
+                mix-blend-mode: color-dodge;
+                opacity: 0;
+                transition: 0.3s all linear;
+                pointer-events: none;
+                border-radius: rem(10px);
+                overflow: hidden;
+                @include respond-below(xl3) {
+                    background: image('shape-cs-sec.png') no-repeat 30% 40% / auto 120%;
+                }
+                @include respond-below(xl) {
+                    background: image('shape-cs-sec.png') no-repeat 30% 40% / auto 140%;
+                }
+            }
+            &.animated{
+                @include respond-below(md) {
+                    background-color: $primary-100;
+                    box-shadow: 0px 0px 68px 26px rgba($primary-100, 0.30),inset 0px 98px 250px 0px rgba($primary-100, 0.79);
+                    border-color:$primary-100;
+                    overflow: hidden;
+                    p {
+                        color: $white;
+                    }
+                    .cs-head {
+                        color: $white;
+                    }
+                    .btn-link {
+                        color: $white;
+                    }
+                    &:before{
+                        opacity: 1;
+                    }
+                }
+            }
+            &:hover{
+                background-color: $primary-100;
+                box-shadow: 0px 0px 68px 26px rgba($primary-100, 0.30),inset 0px 98px 250px 0px rgba($primary-100, 0.79);
+                border-color:$primary-100;
+                overflow: hidden;
+                p {
+                    color: $white;
+                }
+                .cs-head {
+                    color: $white;
+                }
+                .btn-link {
+                    color: $white;
+                }
+                &:before{
+                    opacity: 1;
+                }
+            }
+        }
+        &-head {
+            margin-bottom:rem(25px);
+        }
+        &-inner{
+            .btn-link {
+                position: absolute;
+                bottom: 50px;
+                letter-spacing: 1.2px;
+            }
+            p {
+                margin-bottom: rem(10px);
+                font-weight: 300;
+            }
+        }    
+    }
+}

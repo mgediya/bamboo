@@ -1,0 +1,119 @@
+.payment-center-section{
+    margin-top: rem(-180px);
+    margin-bottom: rem(170px);
+    @include respond-below(xxl) {
+        margin-bottom: rem(150px);
+    }
+    @include respond-below(lg) {
+        margin-top:rem(-120px);
+        margin-bottom: rem(80px);
+    }
+    @include respond-below(md) {
+        margin-bottom: rem(50px);
+        margin-top: rem(-100px);
+    }
+    .pc{
+        &-wrapper{
+            overflow: hidden;
+            box-shadow: 0px 0px 25px 10px rgba($black ,0.18);
+            border-radius:rem(50px);
+            position: relative;
+            z-index: 1;
+            padding: rem(70px) rem(95px);
+            background:$white;
+            @include respond-below(xl3) {
+                padding: rem(50px);
+            }
+            @include respond-below(xxl) {
+                padding: rem(30px);
+                border-radius:rem(20px);
+            }
+            @include respond-below(md) {
+                max-width: rem(500px);
+                margin: auto;
+            }
+        }
+        &-desc{
+            @include respond-below(md) {
+                margin-bottom:rem(30px);
+            }
+            h5 {
+                font-weight: 900;
+            }
+            h3 {
+                font-weight: 300;
+                margin-top: rem(40px);
+                margin-bottom: rem(75px);
+                @include respond-below(xxl) {
+                    margin: rem(40px) 0;
+                }
+                @include respond-below(md) {
+                    margin:rem(20px) 0;
+                }
+            }
+        }
+        &-btnwrap{
+            display: inline-flex;
+            align-items: center;
+            .btn-main{
+                padding: rem(30px) rem(90px) rem(30px) rem(45px);
+                border-radius: rem(60px);
+                font-size: rem(23px);
+                letter-spacing: rem(2.2px);
+                background-color: $primary-100;
+                color: $white;
+                text-decoration: none;
+                font-weight: 500;
+                position: relative;
+                transition: 0.5s all;
+                border: 1px solid $primary-100; 
+                &:hover{
+                    background-color: $white;
+                    color: $primary-100;
+                    border: 1px solid $primary-100; 
+                }
+                @include respond-below(xxl) {
+                    padding: rem(15px) rem(90px) rem(15px) rem(45px);
+                }
+                @include respond-below(xl) {
+                    padding: rem(15px) rem(50px) rem(15px) rem(20px);
+                    font-size: rem(18px);
+                }
+                @include respond-below(md) {
+                    text-align: center;
+                    padding: rem(10px) rem(50px) rem(10px) rem(20px);
+                    font-size: rem(16px);
+                }
+                &::before{
+                    position: absolute;
+                    top: 50%;
+                    right: (44px);
+                    @include flex-center();
+                    transform: translatey(-50%);
+                    @include respond-below(xl) {
+                        right: (18px);
+                    }
+                } 
+                &.check-btn{
+                    margin-right: rem(30px);
+                    @include respond-below(xl) {
+                        margin-right: rem(20px);
+                    }
+                    &::before{
+                        @include icon('a');
+                    }  
+                }
+                &.cancle-btn{
+                    &::before{
+                        @include icon('i');
+                    }  
+                }
+            }
+        }
+        &-img{
+            position: relative;
+            padding-top:aspect-ratio(590,570);
+            @include imgFit();
+        }
+    }
+}

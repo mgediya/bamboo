@@ -1,0 +1,70 @@
+.downloadable-resources-faqs{
+    background: $white;
+    &.most-current-news{
+        margin-top:0;
+        padding-bottom: 0;
+        .fb-cat-row{
+            padding-top: rem(110px);
+            @include respond-below(xl3) {
+                padding-top: rem(70px);
+            }
+            @include respond-below(lg) {
+                padding-top: rem(30px);
+            }
+            .filterlist{
+                width: 84%;
+                @include respond-below(xl) {
+                    width: 100%;  
+                }
+                &:before{
+                    background: linear-gradient(90deg, rgba($white, 0) 0%, $white 113%);
+                }
+            }
+            .filter-column{
+                width: 16%;
+                @include respond-below(xl) {
+                    width: 100%;  
+                }
+                .checkbox-list{
+                    padding-right: 0;
+                }
+            }
+        }
+        .faq-section{
+            margin-top: rem(140px);
+            
+                @include respond-below(xl3) {
+                    margin:rem(100px) 0 0 0;  
+                } 
+                @include respond-below(xxl) {
+                    margin:rem(50px) 0 0 0;  
+                }    
+                @include respond-below(md) {
+                    .tb-content{
+                        padding-top: 0  ;
+                    }
+                    .sidebartab-dropdown {
+                        display: none;
+                    }
+                    .tabs-nav{
+                        display: block;
+                        top: unset;
+                        right: unset;
+                        left: unset;
+                        background: unset;
+                        position: relative;
+                        box-shadow: unset;
+                        border: unset;
+                        padding-left: 0;
+                        border-bottom: 2px solid #bec2ce;
+                        border-radius: unset;
+                        margin-bottom: rem(20px);
+                        h4 {
+                            font-size: rem(24px);
+                        }
+                    }
+                }
+                
+        }
+    } 
+}

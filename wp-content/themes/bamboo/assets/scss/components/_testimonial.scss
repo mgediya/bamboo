@@ -1,0 +1,161 @@
+.testimonial-section{
+    padding: rem(100px) 0 rem(180px);
+    position: relative;
+    overflow: hidden;
+    @include respond-below(xl) {
+        padding-bottom:rem(100px) ;
+    }
+    @include respond-below(lg) {
+        padding: rem(100px) 0 rem(70px);
+    }
+    @include respond-below(md) {
+        padding: rem(50px) 0;
+    }
+    
+    &.mt-minus{
+        padding-top: rem(265px);
+        margin-top: rem(-240px);
+        @include respond-below(xl) {
+            padding-top: rem(200px);
+        }
+        @include respond-below(lg) {
+            padding-top: rem(170px);
+            margin-top: rem(-200px);
+        }
+    }
+    &.-texture{
+        background-color: $gray-400;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            bottom: 0;
+            left: 0;
+            background-image: image('ts-tree-shape.png');
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+    }
+    &.-color{
+        background-color: $white;
+    }
+    .black-img {
+        display: none;
+    }
+    .slick-current{
+        .ts-details{
+            position: relative;
+                &:before{
+                    content: "";
+                    position: absolute;
+                    width: rem(2px);
+                    height: rem(100px);
+                    top: rem(40px);
+                    right:rem(85px);
+                    pointer-events: none;;
+                    border-right:1px solid $gray-500;
+                    @include respond-below(xl3) {
+                        right:rem(70px);
+                    }
+                    @include respond-below(lg) {
+                        display: none;
+                    }
+                }   
+        }
+    }
+    .star-img{
+        position: relative;
+        height: 25px;
+        .star-black{
+            height: 25px;
+            opacity: 0.3;
+        }
+        .yellow-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            img {
+                width: auto;
+                max-height: unset;
+                max-width: unset;
+                height: 100%;
+            }
+        }
+    }
+    .ts{
+        &-testimonial-wrapper{
+            padding: 0 rem(50px);
+            &.no-space {
+                padding: 0;
+            }
+            @include respond-below(lg) {
+                padding: 0;
+            }
+        }
+        &-heading{
+            margin-bottom: rem(130px);
+            position: relative;
+            @include respond-below(xl) {
+                margin-bottom: rem(70px);
+            }
+            @include respond-below(lg) {
+                margin-bottom: rem(40px);
+            }
+            @include respond-below(sm) {
+                margin-bottom: rem(30px);
+            }
+            .sub-heading {
+                margin-bottom: 0;
+                margin-right: rem(25px);
+                color: $secondary-300;
+                font-weight: 300;
+            }
+           .ts-review-img {
+                margin-top: rem(8px);
+                overflow: hidden;
+                .star-img{
+                    height: 35px;
+                    .star-black{
+                        height: 35px;
+                    }
+                    .yellow-img {
+                        height: 35px;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+            h2{
+                margin-top: rem(50px);
+                @include respond-below(xl) {
+                    margin-top: rem(20px);
+                }
+            }
+        }
+        &-details{
+            position: relative;
+            .sr-testimonial-content{
+                    
+                    margin-right: rem(70px);
+                    @include respond-below(lg) {
+                        margin-right: rem(0px);
+                    }
+                    p {
+                        font-size: rem(18px);
+                        color: $secondary-500;
+                        margin-top: rem(15px);
+                        max-width: 90%;
+                    }
+                    h4{
+                        font-size: rem(18px);
+                        color: $secondary-500;
+                        margin-top: rem(20px); 
+                    }
+            }
+        }
+    }
+}

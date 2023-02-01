@@ -1,0 +1,110 @@
+.contact-form-section{
+    position: relative;
+    z-index: 1;
+    margin-top: rem(-180px);
+    margin-bottom: rem(210px);
+    @include respond-below(lg){
+        margin-top: rem(-120px);
+    }
+    @include respond-below(md) {
+        margin-top: rem(-110px);
+    }
+    .cf{
+        &-form{
+            &.form-wrapper{
+                h3{
+                    font-weight: 300;
+                }
+            }
+            .gravity-theme{
+                .gform_footer{
+                    display: inline-block;
+                    @include respond-below(xl){
+                        margin-top: rem(10px);
+                    }
+                    .gform_button{
+                        width: auto;
+                        padding-right: rem(100px);
+                    }
+                }
+            }
+        }
+        &-mainrow{
+            @include row-space(70px);
+            @include respond-below(xl3){
+                @include row-space(40px)
+            }
+        }
+        &-detailwrap{
+            padding: rem(60px) rem(60px) rem(40px) rem(60px);
+            background: $white;
+            box-shadow: 0px 0px 25px 10px rgba($box-shadow-color , 9%);
+            border-radius: 50px;
+            @include respond-below(xl3){
+                padding: rem(30px) rem(40px);
+            }
+            @include respond-below(xl){
+                padding: rem(30px) rem(20px);
+                border-radius: 20px;
+            }
+            @include respond-below(lg){
+                margin-top: rem(50px);
+            }
+            .cf-detailhead{
+                margin-bottom: rem(15px);
+                h4{
+                    color: $primary-100;
+                    margin-bottom: rem(25px);
+                }
+            }
+            .cf-detailall{
+                .detail{
+                    padding: rem(25px) 0 0 0;
+                    border-bottom: 1px solid $gray-900;
+                        &:last-child{
+                            border: none;
+                        }
+                    h3 {
+                        font-weight: 900;
+                        font-size: rem(18px);
+                        color: $primary-100;
+                    }
+                    p{
+                        font-weight: 300;
+                        font-size: rem(17px);
+                        color: $black;
+                        display: inline-flex;
+                        flex-direction: column;
+                        &:empty {
+                            display: none;
+                        }
+                        &:hover{
+                            color: $primary-100;
+                        }
+                        @include respond-below(xl3){
+                            font-size: rem(16px);
+                        }
+                        a{
+                            font-weight: 300;
+                            font-size: rem(17px);
+                            color: $black;
+                            text-decoration: none;
+                            width: max-content;
+                            &:hover{
+                                color: $primary-100;
+                            }
+                            &:focus {
+                                border: none;
+                            }
+                            @include respond-below(xl3){
+                                font-size: rem(16px);
+                                word-break: break-all;
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+    }    
+}
+

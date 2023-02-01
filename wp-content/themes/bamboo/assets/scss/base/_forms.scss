@@ -1,0 +1,464 @@
+form label {
+	display: block;
+	margin-bottom: rem(10px);
+	color: $label-color;
+	font-family: $label-font-family;
+	font-size: $label-font-size;
+	font-weight: $label-font-weight;
+	line-height: 1.5;
+}
+
+:is(input, textarea, button, select) {
+	font-family: $input-font-family;
+}
+
+input[type="url"],
+input[type="text"],
+input[type="submit"],
+input[type="button"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+textarea {
+	-webkit-appearance: none;
+	outline: none;
+}
+
+input[type="url"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+	width: 100%;
+	height: $input-height-base;
+	padding: 0 rem(15px);
+	color: $input-color;
+	font-size: $input-font-size;
+	font-weight: $input-font-weight;
+	border: rem(1px) solid $input-border-color;
+	border-radius: $input-radius;
+
+	&:focus {
+		border-color: $input-border-color-focus;
+		outline: none;
+	}
+
+	@include placeholder {
+		color: $input-color-placeholder;
+		opacity: 1;
+	}
+}
+
+textarea {
+	display: block;
+	height: $textarea-height-base;
+	padding: rem(10px) rem(15px);
+	resize: none;
+	overflow: auto;
+}
+
+select {
+	-webkit-appearance: none;
+	padding-right: 1.875em;
+	background-color: transparent;
+	// background-image: image("select-down-arrow.svg");
+	// background-image: url("../images/select-down-arrow.svg");
+	background-size: rem(14px) rem(7px);
+	background-position: right 0.5em center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+select:focus {
+	outline: none;
+}
+
+/* for ie */
+select::-ms-expand {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	// border: 1px solid green;
+	// -webkit-text-fill-color: green;
+	// -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-group {
+	margin-bottom: rem(20px);
+}
+
+// Custom radio button
+.radio-btn-group {
+	.radio-option {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 rem(10px);
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		.radio-custom {
+			position: absolute;
+			opacity: 0;
+
+			&:focus {
+				+.radio-custom-label {
+					outline: none;
+				}
+			}
+
+			&:checked {
+				+.radio-custom-label {
+					&:before {
+						background-color: $black;
+					}
+				}
+			}
+		}
+
+		.radio-custom-label {
+			margin: 0;
+			cursor: pointer;
+			color: $black;
+
+			&:before {
+				content: "";
+				display: inline-block;
+				vertical-align: middle;
+				height: rem(10px);
+				width: rem(10px);
+				margin-top: rem(3px);
+				margin-right: rem(10px);
+				background-color: $white;
+				border: rem(2px) solid $white;
+				border-radius: 50%;
+				box-shadow: 0 0 0px 2px $black;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+// Custom Checkbox
+.checkbox,
+.gfield_checkbox {
+	input[type="checkbox"] {
+		display: none;
+		width: initial;
+		height: initial;
+		margin-bottom: 0;
+		padding: 0;
+		cursor: pointer;
+
+		&:checked+label:after {
+			content: "";
+			position: absolute;
+			top: 4px;
+			left: 7px;
+			display: block;
+			width: rem(5px);
+			height: rem(10px);
+			border: solid $secondary-100;
+			border-width: 0 rem(2px) rem(2px) 0;
+			transform: rotate(42deg);
+		}
+	}
+
+	label {
+		position: relative;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: rem(8px);
+			padding: rem(8px);
+			background-color: transparent;
+			border: rem(2px) solid $secondary-100;
+			-webkit-appearance: none;
+			cursor: pointer;
+		}
+	}
+}
+.form-wrapper{
+	padding: rem(50px) rem(55px);
+    background: $white;
+    box-shadow: 0px 0px 25.2px 9.8px rgba($box-shadow-color , 9%);
+    border-radius: 50px;
+	@include respond-below(xl3){
+		padding: rem(30px) rem(40px);
+	}
+	@include respond-below(xl){
+		padding: rem(30px) rem(20px);
+		border-radius: rem(20px);
+	}
+	.form-heading{
+		margin-bottom: rem(50px);
+		@include respond-below(xl) {
+			margin-bottom: rem(30px);
+		}
+		.sub-heading{
+			font-weight: 900;
+			color: $primary-100;
+		}
+	}
+	.gform{
+		&_confirmation_message {
+			color: green;
+			text-align: center;
+			font-size: 22px;
+			font-weight: 500;
+			margin-bottom: 50px;
+		}
+		&_wrapper{
+			&.gravity-theme {
+				input[type=color],input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],select,textarea{
+					font-size: $input-font-size;
+					color: $primary-100;
+					border: 0;
+					border-bottom: 1px solid $input-border-color;
+					height: auto;
+					padding: rem(12px);
+					@include placeholder(){
+						color: $input-color-placeholder;
+					}
+					@include respond-below(xl) {
+						font-size: rem(18px);
+					}
+					@include respond-below(lg) {
+						font-size: rem(16px);
+					}
+				}
+				.border-input{
+					padding: rem(35px) 0 rem(5px);
+					textarea{
+						border: 1px solid $input-border-color;
+						border-radius: rem(30px);
+						padding:rem(30px);
+						&.large {
+							height: rem(190px);
+							@include respond-below(xl) {
+								height: rem(150px);
+							}
+							@include respond-below(xl) {
+								height: rem(120px);
+							}
+						}
+						@include respond-below(xl) {
+							border-radius: rem(20px);
+						}
+						@include respond-below(md) {
+							border-radius: rem(15px);
+						}
+					}
+					.ginput_container{
+						padding-left: 0;
+						&:before{
+							display: none;
+						}
+					}
+				}
+				.check-noselect{
+					.ginput_container{
+						padding-left: rem(20px);
+						@include respond-below(md) {
+							padding-left: 0;
+						}
+						&:before{
+							display: none;
+						}
+						.gfield-choice-input{
+							display: none;
+						}
+						label{
+							color: $input-color-placeholder;
+							display: flex;
+							align-items: center;
+							&::before{
+								border-radius: 50%;
+								border-color: $input-color-placeholder;
+							}
+							&::after{
+								background-color: $primary-100;
+								top: 50%;
+								left:rem(4px);
+								width: rem(12px);
+								height: rem(12px);
+								border: none;
+								border-radius: rem(50px);
+								transform: translateY(-50%);
+								transition: 0.5s all;
+							}
+						}
+					}
+				}
+				select{
+					color: $input-color-placeholder;
+				}
+				.hide-label{
+					.ginput_container{
+						&:before{
+							color: $primary-100;
+						}
+						&.ginput_container_select{
+							&:after {
+								transform: rotate(45deg);
+								border-bottom: 1px solid $primary-100;
+								border-right: 1px solid $primary-100;
+							}
+						}
+					}
+					select{
+						color: $primary-100;
+					}
+				}
+				.gform_fields{
+					grid-row-gap: rem(20px);
+					grid-column-gap: 6%;
+					@include respond-below(xl){
+						grid-row-gap: rem(15px);
+						grid-column-gap: rem(20px);
+					}
+				}
+				.gform_footer{
+					margin-top: rem(40px);
+					position: relative;
+					@include respond-below(xl){
+						margin-top: rem(30px);
+					}
+					&:hover{
+						&:after {
+							color: $secondary-100;
+						}
+					}
+					&:after {
+						@include icon("b");
+						position: absolute;
+						top: 50%;
+						right: 20px;
+						transform: translateY(-50%);
+						font-size: rem(30px);
+						color: $white;
+						transition: .3s;
+						pointer-events: none;
+						@include respond-below(xl) {
+							font-size: rem(18px);
+						}
+						@include respond-below(lg) {
+							font-size: rem(16px);
+						}
+					}
+					.gform_button{
+						width: 100%;
+						font-size: rem(23px);
+						padding:rem(25px);
+						padding-right: rem(60px);
+						border-radius: rem(48px);
+						margin: 0;
+						@include respond-below(xl) {
+							font-size: rem(18px);
+							padding:rem(15px);
+							padding-right: rem(60px);
+						}
+						@include respond-below(lg) {
+							font-size: rem(16px);
+						}
+						@include respond-below(md) {
+							padding:rem(8px) rem(8px) rem(8px) rem(16px);
+							padding-right: rem(60px);
+						}
+					}
+				}
+			}
+			.gfield_validation_message,.validation_message{
+				background:transparent;
+				border: 0;
+				padding: 0;
+				padding-top: 5px !important;
+				padding-left: rem(35px);
+				margin: 0;
+			}
+			.focused{
+				.ginput_container{
+					&:before{
+						color: $primary-100;
+					}
+					&.ginput_container_select{
+						&:after {
+							transform: rotate(225deg);
+							border-bottom: 1px solid $primary-100;
+							border-right: 1px solid $primary-100;
+						}
+					}
+				}
+			}
+			.ginput_container{
+				position: relative;
+				padding-left: rem(35px);
+				&:before{
+					@include icon('a');
+					position: absolute;
+					left: 0;
+					top: 12px;
+					font-size: rem(20px);
+					color: rgba($secondary-300,20%);
+				}
+				&.ginput_container_phone{
+					.validation_message{
+						padding-left: 0;
+					}
+				}
+				&.ginput_container_select{
+					position: relative;
+					transition: 0.3s all linear;
+					&:after{
+						content: '';
+						border-bottom: 1px solid $gray;
+						border-right: 1px solid $gray;
+						transform: rotate(45deg);
+						width: rem(10px);
+						height: rem(10px);
+						position: absolute;
+						right:0;
+						top: 40%;
+						transition: 0.5s all;
+						@include respond-below(lg){
+							top: 35%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

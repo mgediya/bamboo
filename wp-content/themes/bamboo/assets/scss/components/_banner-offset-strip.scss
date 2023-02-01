@@ -1,0 +1,68 @@
+.banner-offset-strip-section {
+    margin: rem(100px) 0 rem(150px) 0;
+    @include respond-below(xl) {
+        margin: rem(100px) 0;
+    }
+    @include respond-below(md) {
+        margin: rem(50px) 0;
+    }
+    &.mt-minus{
+        padding-top: 0;
+        margin-top: rem(-160px);
+        @include respond-below(lg){
+            margin-top: rem(-120px);
+        }
+        @include respond-below(md){
+            margin-top: rem(-100px);
+        }
+    }
+    .pos{
+        &-warpper {
+            box-shadow: 0px 0px 25px 5px rgb($black,0.25);
+            border-radius: rem(50px);
+            padding: rem(50px) rem(110px);
+            position: relative;
+            background-color: $white;
+            @include respond-below(xl3) {
+                padding: rem(30px) rem(40px);
+                border-radius: rem(20px);
+            }
+            @include respond-below(lg) {
+                padding: rem(30px);
+            }
+        }
+        &-leftwrap{
+            border-right: 1px solid $gray-800;
+            padding-right: rem(80px);
+            @include respond-below(lg) {
+                padding-right: rem(15px);
+            }
+            @include respond-below(md) {
+                border: none;
+                padding-right: 0;
+                padding-bottom: rem(30px);
+                &:first-child{
+                    border-bottom: 1px solid $gray-800;
+                }
+            }
+            p {
+                font-size: rem(17px);
+                margin-top: rem(35px);
+            }
+        }
+        &-rightwrap{
+            position: relative;
+            max-width: rem(380px);
+            margin: auto;
+            @include respond-below(lg) {
+                padding-top: rem(15px);
+            }
+            &:before{
+                content: '';
+                padding-top:aspect-ratio(375,235);
+                display: block
+            }
+            @include imgFit();
+        }
+    }
+}
