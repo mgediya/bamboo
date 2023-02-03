@@ -80,6 +80,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
+/*
 define('ONEINC_PORTAL_AUTH_KEY', 'A722632B-B099-442F-81DE-527B68657CBB');
-define('ONEINC_PORTAL_BASE_URL', 'https://testportalone.processonepayments.com');
+define('ONEINC_PORTAL_BASE_URL', 'https://testportalone.processonepayments.com'); */

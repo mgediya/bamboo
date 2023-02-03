@@ -4,6 +4,7 @@
 */
 $footer_logo = get_field( 'footer_logo','option' );
 $footer_text = get_field( 'footer_text','option' );
+$footer_left_text = get_field( 'footer_left_text','option' );
 $copyright = get_field( 'copyright_content','option' );
 $current_year = date('Y');
 $copyright_text = str_replace("[year]",$current_year ,$copyright);
@@ -13,6 +14,10 @@ $footer_offset_top = get_field( 'footer_offset_top' );
 $class='';
 if( $footer_offset_top ){
     $class=' mt-minus';
+}
+
+if ( isset($_GET['setting']) ) {
+	$class='';
 }
 		echo '
 		</div>
@@ -57,6 +62,7 @@ if( $footer_offset_top ){
                                     echo'</ul>
                                 </div>';
                             }
+                            if($footer_left_text) echo '<div class="ft-text">'.$footer_left_text.'</div>';
                         echo '</div>';
                         echo'<div class="footer-right cell-lg-8">
                             <div class="row ">';

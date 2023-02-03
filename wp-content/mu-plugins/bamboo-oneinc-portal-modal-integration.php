@@ -22,7 +22,6 @@
 defined( 'WPINC' ) || die();
 
 class Bamboo_OneInc_Portal_Modal_Integration {
-
 	const AJAX_ACTION     = 'bamboo-oneinc-sessionid';
 	const BUTTON_SELECTOR = '.trigger-oneinc-portal-modal';
 	const CONFIRM_MESSAGE = 'You are leaving Bamboo Insurance: proceed to third-party site?';

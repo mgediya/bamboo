@@ -22,4 +22,5 @@ $('.ts-testimonial').slick({
 
 
 import "./device-menu.js";
+import "./fancybox.js";
 import "./scripts.js";

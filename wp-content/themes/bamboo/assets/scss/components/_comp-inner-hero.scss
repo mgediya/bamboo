@@ -58,6 +58,11 @@
     }
     &-content{
         position: relative;
+        max-width: rem(810px);
+        margin: auto;
+        @include respond-below(xl){
+            max-width: rem(700px);
+        }
         .small{
             color: $primary-100;
             font-size: rem(29px);

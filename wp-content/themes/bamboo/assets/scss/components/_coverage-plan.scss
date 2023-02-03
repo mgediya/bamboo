@@ -209,6 +209,7 @@
                     box-shadow: 10px 10px 50px 19px $primary-300;
                     position: relative;
                     z-index: 1;
+                    text-decoration: none;
                     @include respond-below(xl){
                         border-radius: rem(20px);
                     }

@@ -1,0 +1,240 @@
+<?php
+
+defined( 'WPINC' ) || die();
+
+class Bamboo_OneInc_Integration_Demo {
+
+	const WIDGET_ID = 'bamboo-oneinc-api-config';
+
+	/**
+	 * Initialize.
+	 *
+	 * @uses static::instance()
+	 *
+	 * @return void
+	 */
+	public static function init() {
+		static $init = false;
+
+		if ( $init ) {
+			trigger_error( sprintf( 'The %s class has already been initialized.', static::class ), E_USER_NOTICE );
+			return;
+		}
+
+		static::instance();
+		$init = true;
+	}
+
+	/**
+	 * Create or get singleton instance.
+	 *
+	 * @return self
+	 */
+	public static function instance() {
+		static $instance = null;
+
+		if ( ! is_null( $instance ) ) {
+			return $instance;
+		}
+
+		$instance = new self;
+
+		return $instance;
+	}
+
+	/**
+	 * Construct.
+	 *
+	 * Protected to prevent multiple instances.
+	 * Access singleton via static::init().
+	 *
+	 * If no authentication key or base URL is set, bail.
+	 *
+	 * @uses static::auth_key()
+	 */
+	protected function __construct() {
+		add_action( 'template_redirect', array( $this, 'action__template_redirect' ) );
+		add_action( 'wp_dashboard_setup', array( $this, 'action__wp_dashboard_setup' ) );
+
+		add_filter( 'oneinc-portal-base-url', array( $this, 'filter__base_url' ) );
+		add_filter( 'oneinc-portal-auth-key', array( $this, 'filter__auth_key' ) );
+	}
+
+	public function filter__base_url( $value ) {
+		return $this->get_option( 'base_url' );
+	}
+
+	public function filter__auth_key( $value ) {
+		return $this->get_option( 'auth_key' );
+	}
+
+	public function action__template_redirect() {
+		if ( ! is_home() && ! is_front_page() ) {
+			return;
+		}
+		if( !is_user_logged_in() ) {
+			return;
+		}
+
+		if ( !isset($_GET['setting']) ) {
+			return;
+		}
+		if ( $_GET['setting']!=1 ) {
+			return;
+		}
+
+		$config = $this->get_options();
+
+		if ( ! empty( $_POST ) && wp_verify_nonce( $_POST['_wpnonce'], __CLASS__ ) ) {
+			if ( isset( $_POST['oneinc-base-url'] ) ) {
+				$config['base_url'] = $_POST['oneinc-base-url'];
+			}
+
+			if ( isset( $_POST['oneinc-auth-key'] ) ) {
+				$config['auth_key'] = $_POST['oneinc-auth-key'];
+			}
+
+			$this->update_options( $config );
+		}
+		Bamboo_OneInc_Portal_Modal_Integration::frontend();
+		// add_action( 'wp_body_open', static function () {
+		// 	echo '<a href="https://google.com" class="trigger-oneinc-portal-modal">Modal Trigger 1 as Link</a>';
+		// } );
+		// add_action( 'wp_footer', static function () {
+		// 	echo '<button class="trigger-oneinc-portal-modal">Modal Trigger 2 as Button</button>';
+		// } );
+		get_header();
+
+		echo '<div class="main-content">
+			<section class="inner-hero bg-shape">
+				<div class="container">';
+				echo '<form method="post" style="max-width: var(--responsive--alignwide-width); margin-left: auto; margin-right: auto;">';
+					echo '<p>';
+						echo '<label for="oneinc-base-url">Base URL</label>';
+						printf( '<input size="100" id="oneinc-base-url" name="oneinc-base-url" class="code" type="text" value="%s" style="font-family: monospace; width: 100%%;" />', esc_attr( $config['base_url'] ) );
+					echo '</p>';
+					echo '<p style="margin-top: 20px;">';
+						echo '<label for="oneinc-auth-key">Authentication Key</label>';
+						printf( '<input size="100" id="oneinc-auth-key" name="oneinc-auth-key" type="text" value="%s" style="font-family: monospace; width: 100%%;" />', esc_attr( $config['auth_key'] ) );
+					echo '</p>';
+
+					echo '<p style="margin-top: 20px;"><input type="submit" value="Save" />&nbsp;';
+					echo '<a href="'.get_permalink().'" class="btn" />Cancel</a>';
+
+					wp_nonce_field( __CLASS__ );
+
+				echo '</form>';
+				echo '<br><br>';
+				echo '<h3>Please click on button to check modal!!</h3>';
+				echo '<button class="trigger-oneinc-portal-modal btn">Modal Trigger as Button</button>';
+			echo '</div>';
+		echo '</section>';
+		echo '</div>';
+		get_footer();
+		exit;
+	}
+
+	public function action__wp_dashboard_setup() {
+		if ( 'wp_dashboard_setup' !== current_action() ) {
+			return;
+		}
+
+		wp_add_dashboard_widget(
+			static::WIDGET_ID,
+			'OneInc API Config',
+			array( $this, 'widget' ),
+			array( $this, 'config' ),
+			null,
+			'normal',
+			'high'
+		);
+	}
+
+	public function widget() {
+		$config = $this->get_options();
+		
+		if ( ! empty( $config['base_url'] ) ) {
+			echo '<p>';
+				echo '<label for="oneinc-base-url">Base URL</label><br />';
+				printf( '<code style="display: block; width: 100%%; box-sizing: border-box;">%s</code>', esc_attr( $config['base_url'] ) );
+			echo '</p>';
+		}
+
+		if ( ! empty( $config['auth_key'] ) ) {
+			echo '<p>';
+				echo '<label for="oneinc-auth-key">Authentication Key</label><br />';
+				printf( '<code style="display: block; width: 100%%; box-sizing: border-box;">%s</code>', esc_attr( $config['auth_key'] ) );
+			echo '</p>';
+
+			return;
+		}
+
+		if ( empty( $config['base_url'] ) ) {
+			printf( '<p>Please enter <a href="%s">configuration</a> values.</p>', add_query_arg( 'edit', 'bamboo-oneinc-api-config', admin_url() ) . '#bamboo-oneinc-api-config' );
+		}
+	}
+
+	public function config() {
+		$config = $this->get_options();
+
+		if ( ! empty( $_POST ) && wp_verify_nonce( $_POST['_wpnonce'], __CLASS__ ) ) {
+			if ( isset( $_POST['oneinc-base-url'] ) ) {
+				$config['base_url'] = $_POST['oneinc-base-url'];
+			}
+
+			if ( isset( $_POST['oneinc-auth-key'] ) ) {
+				$config['auth_key'] = $_POST['oneinc-auth-key'];
+			}
+
+			$this->update_options( $config );
+		}
+
+		echo '<p>';
+			echo '<label for="oneinc-base-url">Base URL</label><br />';
+			printf( '<input id="oneinc-base-url" name="oneinc-base-url" class="code" type="text" value="%s" style="width: 100%%;" />', esc_attr( $config['base_url'] ) );
+		echo '</p>';
+
+		echo '<p>';
+			echo '<label for="oneinc-auth-key">Authentication Key</label><br />';
+			printf( '<input id="oneinc-auth-key" name="oneinc-auth-key" class="code" type="text" value="%s" style="width: 100%%;" />', esc_attr( $config['auth_key'] ) );
+		echo '</p>';
+
+		wp_nonce_field( __CLASS__ );
+	}
+
+	public function get_options() {
+		$opts = get_option( 'bamboo-oneinc-api-config' );
+
+		if ( empty( $opts ) ) {
+			return array(
+				'base_url' => '',
+				'auth_key' => '',
+			);
+		}
+
+		return $opts;
+	}
+
+	public function get_option( $option, $default = null ) {
+		$opts = $this->get_options();
+
+		if ( isset( $opts[ $option ] ) && ! empty( $opts[ $option ] ) ) {
+			return $opts[ $option ];
+		}
+		
+		return ( isset( $default ) ) ? $default : '';
+	}
+
+	public function update_options( $args = array() ) {
+		$opts = $this->get_options();
+		
+		foreach ( $args as $key => $value ) {
+			$opts[ $key ] = $value;
+		}
+
+		update_option( 'bamboo-oneinc-api-config', $opts );
+	}
+
+}
+
+Bamboo_OneInc_Integration_Demo::init();

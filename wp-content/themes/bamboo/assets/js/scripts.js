@@ -193,16 +193,23 @@ $(() => {
 			scrollTop: $("#claim4").offset().top - 100
 		}, 1000);
 	});
-	$(".get-a-quote").click(function() {
-		$('html, body').animate({
-			scrollTop: $("#get-a-quote").offset().top
-		}, 1000);
-	});
+	// $(".get-a-quote").click(function() {
+	// 	$('html, body').animate({
+	// 		scrollTop: $("#get-a-quote").offset().top
+	// 	}, 1000);
+	// });
 	$(".coverage-btn").click(function() {
 		$('html, body').animate({
 			scrollTop: $("#coverage-part").offset().top - 100
 		}, 1000);
 	});
+	
+	// $(".have-questions").click(function() {
+	// 	$('html, body').animate({
+	// 		scrollTop: $(".faq-section").offset().top - 100
+	// 	}, 1000);
+	// 	$('.tabs-nav .tabs-item').last().find('h4').trigger( "click" );
+	// });
 
 });
 

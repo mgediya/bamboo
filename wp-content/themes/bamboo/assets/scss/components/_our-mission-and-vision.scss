@@ -1,8 +1,11 @@
 .our-mission-and-vision{
-    background: image('mission-shape.png') no-repeat center right / cover;
+    background-image: image('mission-shape.png');
+    background-position: right -150px;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: rem(60px) 0;
     @include respond-below(lg) {
-        padding: rem(60px) 0 0 0;
+        padding: rem(40px) 0;
     }
     .our-value-wrapper{
         padding: rem(230px) 0 rem(100px) 0;

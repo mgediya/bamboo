@@ -169,8 +169,9 @@ $humburgerBase: 30px;
         }
         .quick-contact{
             padding: rem(30px);
+            display: none;
             &:first-of-type{
-                display: none;
+                display: block;
             }
             .phone {
                 display: inline-block;

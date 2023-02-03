@@ -15,12 +15,6 @@
 		.inner-header{
 			box-shadow: 0px 0px 20px 5px rgba($primary-100, 0.2);
 		}
-		.mega-menu-wrapper {
-			&:before {
-				border: 1px solid rgba($primary-100, 0.2);
-				border-top: 0;
-			}
-		}
 	}
 	body.error404 &{
 		position: static;
@@ -126,24 +120,20 @@
 						color: $primary-100;
 					}
 				}
-				&.current-menu-item,
-				&.current-menu-ancestor{
+				&.current-menu-item{
 					>a{
 						color: $primary-100;
 					}
 				}
 				a {
 					text-decoration: none;
-					font-size: rem(18px);
+					font-size: rem(16px);
 					font-weight: 900;
 					color: $secondary-500;
 					position: relative;
 					z-index: 1;
 					&:hover{
 						color: $primary-100;
-					}
-					@include respond-below(xl){
-						font-size: rem(16px);
 					}
 				}
 				&.megamenu {
@@ -183,7 +173,7 @@
 					height: calc(100% + 20px);
 					background: $white;
 					border-radius: 0 0 50px 50px;
-					z-index: -1;
+					box-shadow: 0px 10px 15px rgba($primary-100 , 0.2);
 				}
 				>.sub-menu{
 					width: 38%;
@@ -217,14 +207,11 @@
 							}
 							a{
 								font-weight: 400;
-								font-size: rem(18px);
+								font-size: rem(16px);
 								color: $secondary-400;
 								line-height: 2;
 								&:hover{
 									color: $primary-100;
-								}
-								@include respond-below(lg){
-									font-size: rem(16px);
 								}
 							}
 						}
@@ -245,7 +232,7 @@
 					&-item{
 						.phone{
 							display: inline-block;
-							font-size: rem(40px);
+							font-size: rem(36px);
 							color: $primary-100;
 							line-height: 1;
 							margin-bottom: rem(30px);
@@ -258,10 +245,7 @@
 							}
 						}
 						p{
-							font-size: rem(18px);
-							@include respond-below(lg){
-								font-size: rem(16px);
-							}
+							font-size: rem(16px);
 						}
 					}
 				}
@@ -270,8 +254,7 @@
 		.menu{
 			>li.menu-item-has-children{
 				&:hover,
-				&.current_page_item,
-				&.current-menu-ancestor{
+				&.current_page_item{
 					&:after{
 						border-color: $primary-100;
 					}
@@ -329,14 +312,11 @@
 						}
 						a{
 							font-weight: 400;
-							font-size: rem(18px);
+							font-size: rem(16px);
 							color: $secondary-400;
 							line-height: 2;
 							&:hover{
 								color: $primary-100;
-							}
-							@include respond-below(lg){
-								font-size: rem(16px);
 							}
 						}
 					}
@@ -349,8 +329,7 @@
 					}
 				}
 				&:hover,
-				&.current-menu-item,
-				&.current-menu-ancestor{
+				&.current-menu-item{
 					&:last-child{
 						>a{
 							&::before{
@@ -395,6 +374,7 @@
 			margin-left: rem(15px);
 		}
 		.btn{
+			font-size: rem(16px);
 			@include respond-below(lg) {
 				font-size: 0;
 				padding: 0;

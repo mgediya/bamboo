@@ -1,44 +1,55 @@
 .downloadable-resources-faqs{
-    background: $white;
+    background: transparent !important;
+    &:before{
+        display: none;
+    }
     &.most-current-news{
         margin-top:0;
         padding-bottom: 0;
+        &.mt-minus{
+            margin-top: rem(-250px);
+            margin-bottom: rem(30px);
+            @include respond-below(xl){
+                margin-top: rem(-230px);
+            }
+            @include respond-below(lg){
+                margin-top: rem(-180px);
+            }
+            @include respond-below(md) {
+                margin-top: rem(-150px);
+            }
+        }
+        .tabs-content-wrap {
+            box-shadow: none;
+        }
         .fb-cat-row{
-            padding-top: rem(110px);
-            @include respond-below(xl3) {
-                padding-top: rem(70px);
-            }
-            @include respond-below(lg) {
-                padding-top: rem(30px);
-            }
+            padding-top: rem(22px);
+            padding-bottom: rem(45px);
             .filterlist{
-                width: 84%;
-                @include respond-below(xl) {
-                    width: 100%;  
-                }
                 &:before{
                     background: linear-gradient(90deg, rgba($white, 0) 0%, $white 113%);
                 }
             }
             .filter-column{
-                width: 16%;
-                @include respond-below(xl) {
-                    width: 100%;  
-                }
                 .checkbox-list{
                     padding-right: 0;
                 }
             }
         }
         .faq-section{
-            margin-top: rem(140px);
-            
-                @include respond-below(xl3) {
-                    margin:rem(100px) 0 0 0;  
-                } 
-                @include respond-below(xxl) {
-                    margin:rem(50px) 0 0 0;  
-                }    
+                box-shadow: 0px 0px 25px 10px rgba($black , 0.18);
+                .still-questions-wrapper {
+                    margin: 0;
+                    padding-bottom: rem(100px);
+                    padding-left: rem(100px);
+                    @include respond-below(xl3) {
+                        padding-bottom: rem(50px);
+                        padding-left: rem(50px);
+                    }
+                    @include respond-below(xl) {
+                        padding-left: rem(30px);
+                    }
+                }
                 @include respond-below(md) {
                     .tb-content{
                         padding-top: 0  ;

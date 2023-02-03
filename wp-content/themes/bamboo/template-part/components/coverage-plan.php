@@ -28,8 +28,9 @@ echo '<section class="coverage-plan-section">
                         $icon = get_sub_field('icon');
                         $title = get_sub_field('title');
                         $desc = get_sub_field('description'); 
+                        $link = get_sub_field('link'); 
                         echo '<div class="cell-md-6 plan-cell">
-                            <div class="plan-wrap">
+                            <a href="'.$link.'" class="plan-wrap">
                                 <div class="plan-icon">';
                                     echo file_get_contents($icon['url']);
                                 echo '</div>
@@ -37,7 +38,7 @@ echo '<section class="coverage-plan-section">
                                     <h4>'.$title.'</h4>';
                                     if($desc) echo $desc;
                                 echo '</div>
-                            </div>
+                            </a>
                         </div>';
                         $count++;
                     }
@@ -77,11 +78,11 @@ echo '<section class="coverage-plan-section">
 
                                 echo '<div id="tab'. $j .'" class="tab-content'. $active .'">';
                                     echo '<div class="tab-wrapper">
-                                                <div class="tb-content">';
-                                                    if($tab_description) echo'<p>'.$tab_description.'</p>';
-                                                    if( $tab_button ) echo acf_link( $tab_button, 'btn-link -arrow' );
-                                                echo '</div>
-                                            </div>
+                                        <div class="tb-content">';
+                                            if($tab_description) echo'<p>'.$tab_description.'</p>';
+                                            if( $tab_button ) echo acf_link( $tab_button, 'btn-link -arrow have-questions' );
+                                        echo '</div>
+                                    </div>
                                 </div>';
 
                                 $j++;

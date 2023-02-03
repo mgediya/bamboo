@@ -99,6 +99,7 @@
                         font-weight: 900;
                         color: $primary-100;
                         margin: 0 rem(10px);
+                        font-style: italic;
                         &:last-child{
                             margin-right: 0;
                         }
@@ -241,17 +242,19 @@
         }
         
         .filter-column{
-            width: 21%;
+            // width: 21%;
             padding-bottom: rem(35px);
             padding-right: rem(10px);
             @include respond-below(xl){
-                width: 100%;
                 margin-right: 0;
                 padding-bottom: rem(15px);
             }
+            @include respond-below(md){
+                width: 100%;
+            }
             .checkbox-list {
                 position: relative;
-                font-size: rem(30px);
+                font-size: rem(26px);
                 padding: 0 rem(10px);
                 border: 0;
                 padding-right: rem(30px);
@@ -281,19 +284,20 @@
             }
         }
         .filterlist {
-            width: 79%;
             padding: 0;
             display: flex;
             overflow: auto;
+            flex: 1;
             padding-bottom: rem(40px);
             @include custom-scroll($primary-100);
-            @include respond-below(xl){
-                padding-bottom: rem(20px);
-            }
             @include respond-below(xl){
                 width: 100%;
                 margin-left: 0;
                 padding-bottom: rem(15px);
+            }
+            @include respond-below(md){
+                width: 100%;
+                flex: auto;
             }
             &::before{
                 content: '';
@@ -306,9 +310,9 @@
                 pointer-events: none;   
             }
             .gallery-catlist {
-                font-size: rem(18px);
+                font-size: rem(16px);
                 list-style: none;
-                padding: rem(12px) rem(45px);
+                padding: rem(10px) rem(30px);
                 background-color: $primary-100;
                 border-radius: rem(50px);
                 color: $white;
@@ -328,7 +332,6 @@
                 user-drag: none;
                 @include respond-below(xl3){
                     padding: rem(8px) rem(20px);
-                    font-size: rem(16px);
                 }
                 @include respond-below(xl){
                     margin:0 rem(5px);
